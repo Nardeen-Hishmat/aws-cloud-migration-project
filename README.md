@@ -17,7 +17,7 @@ The deployment leverages AWS managed services to replace local virtualization co
 
 ### Big Picture
 ```mermaid
-graph id
+graph TD
     %% Definitions of Nodes
     User((User / Internet))
     R53[Route 53 <br> DNS Service]
