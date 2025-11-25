@@ -1,5 +1,5 @@
 # AWS Cloud Architecture Deployment
----
+
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![EC2](https://img.shields.io/badge/EC2-orange?style=for-the-badge&logo=amazon-ec2&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -12,8 +12,67 @@
 ![Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
 
 ## Architecture Overview
----
+
 The deployment leverages AWS managed services to replace local virtualization components, ensuring high availability, scalability, and fault tolerance.
+
+### Big Picture
+graph TD
+    %% Definitions of Nodes
+    User((User / Internet))
+    R53[Route 53 <br> DNS Service]
+    S3[AWS S3 Bucket <br> Storage for Artifacts]
+    
+    subgraph "AWS Cloud - VPC (Virtual Private Cloud)"
+        style VPC fill:#f9f9f9,stroke:#333,stroke-width:2px
+        
+        subgraph "Public Subnet / DMZ"
+            ELB[Classic/App Load Balancer <br> Replaces Nginx]
+        end
+        
+        subgraph "Private Subnet (App Layer)"
+            ASG_Group[Auto Scaling Group]
+            subgraph "Dynamic Scaling"
+                Tomcat1[EC2: Tomcat App V1]
+                Tomcat2[EC2: Tomcat App V2]
+                TomcatN[EC2: Tomcat App ...]
+            end
+        end
+        
+        subgraph "Private Subnet (Data & Backend Layer)"
+            MySQL[EC2: MySQL DB]
+            Memc[EC2: Memcached]
+            RMQ[EC2: RabbitMQ]
+        end
+        
+        EFS[Amazon EFS <br> Shared Storage]
+    end
+
+    %% Connections
+    User -- "HTTPS Request" --> R53
+    R53 -- "Alias Record" --> ELB
+    ELB -- "Distributes Traffic (HTTP)" --> Tomcat1
+    ELB --> Tomcat2
+    
+    %% App to Backend Communication
+    Tomcat1 -- "JDBC/SQL" --> MySQL
+    Tomcat1 -- "Cache" --> Memc
+    Tomcat1 -- "Queue" --> RMQ
+    Tomcat2 --> MySQL
+    
+    %% Storage Connections
+    Tomcat1 -.-> EFS
+    Tomcat2 -.-> EFS
+    
+    %% Artifacts
+    S3 -.-> |"Pull Artifacts/Code"| Tomcat1
+    
+    %% Styles
+    style ELB fill:#ff9900,stroke:#333,stroke-width:2px,color:white
+    style Tomcat1 fill:#1f77b4,stroke:#333,stroke-width:2px,color:white
+    style Tomcat2 fill:#1f77b4,stroke:#333,stroke-width:2px,color:white
+    style MySQL fill:#2ca02c,stroke:#333,stroke-width:2px,color:white
+    style RMQ fill:#2ca02c,stroke:#333,stroke-width:2px,color:white
+    style Memc fill:#2ca02c,stroke:#333,stroke-width:2px,color:white
 
 ### Service Mapping (Local vs. AWS)
 
@@ -25,6 +84,7 @@ The deployment leverages AWS managed services to replace local virtualization co
 | **Storage** | Shared Files & Artifacts | Local Disk / NFS | **AWS S3 & EFS** - S3 for artifact storage and EFS for shared instances storage. |
 | **DNS** | Name Resolution | `/etc/hosts` file | **AWS Route 53** - Managed Private/Public DNS service. |
 | **Security** | Access Control | `iptables` / UFW | **AWS Security Groups & IAM Roles** - Fine-grained firewall and access management. |
+
 ---
 
 ##  Deployment Flow
