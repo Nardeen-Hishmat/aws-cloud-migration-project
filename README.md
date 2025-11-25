@@ -1,5 +1,5 @@
 # AWS Cloud Architecture Deployment
---
+---
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![EC2](https://img.shields.io/badge/EC2-orange?style=for-the-badge&logo=amazon-ec2&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -12,7 +12,7 @@
 ![Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
 
 ## Architecture Overview
---
+---
 The deployment leverages AWS managed services to replace local virtualization components, ensuring high availability, scalability, and fault tolerance.
 
 ### Service Mapping (Local vs. AWS)
@@ -25,7 +25,7 @@ The deployment leverages AWS managed services to replace local virtualization co
 | **Storage** | Shared Files & Artifacts | Local Disk / NFS | **AWS S3 & EFS** - S3 for artifact storage and EFS for shared instances storage. |
 | **DNS** | Name Resolution | `/etc/hosts` file | **AWS Route 53** - Managed Private/Public DNS service. |
 | **Security** | Access Control | `iptables` / UFW | **AWS Security Groups & IAM Roles** - Fine-grained firewall and access management. |
---
+---
 
 ##  Deployment Flow
 1. **Infrastructure Setup:** Configuring VPC, Security Groups, and Key Pairs.
