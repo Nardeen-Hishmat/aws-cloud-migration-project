@@ -16,7 +16,7 @@
 The deployment leverages AWS managed services to replace local virtualization components, ensuring high availability, scalability, and fault tolerance.
 
 ### Big Picture
-graph TD
+```graph TD
     %% Definitions of Nodes
     User((User / Internet))
     R53[Route 53 <br> DNS Service]
@@ -73,7 +73,7 @@ graph TD
     style MySQL fill:#2ca02c,stroke:#333,stroke-width:2px,color:white
     style RMQ fill:#2ca02c,stroke:#333,stroke-width:2px,color:white
     style Memc fill:#2ca02c,stroke:#333,stroke-width:2px,color:white
-
+```
 ### Service Mapping (Local vs. AWS)
 
 | component | Role | Local/Legacy Setup | AWS Cloud Solution |
