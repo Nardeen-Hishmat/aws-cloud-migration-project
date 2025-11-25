@@ -2,14 +2,13 @@
 #### This project demonstrates the **Re-architecting (Refactoring)** of a multi-tier Java application on AWS. Instead of managing databases and brokers on VMs, we leverage AWS Managed Services (PaaS) for maximum scalability, security, and reduced operational overhead.
 
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![EC2](https://img.shields.io/badge/EC2-orange?style=for-the-badge&logo=amazon-ec2&logoColor=white)
+![VPC](https://img.shields.io/badge/AWS%20VPC-232F3E.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Amazon RDS](https://img.shields.io/badge/Amazon%20RDS-527FFF.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Amazon ElastiCache](https://img.shields.io/badge/Amazon%20ElastiCache-C925D1.svg?style=for-the-badge&logo=memcached&logoColor=white)
+![Amazon MQ](https://img.shields.io/badge/Amazon%20MQ-FF6600.svg?style=for-the-badge&logo=rabbitmq&logoColor=white)
+![ALB](https://img.shields.io/badge/AWS%20ALB-8C4FFF?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/Rabbitmq-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
-![Memcached](https://img.shields.io/badge/Memcached-00A32A?style=for-the-badge&logo=memcached&logoColor=white)
-![Apache Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=for-the-badge&logo=apache-tomcat&logoColor=black)
+![Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=for-the-badge&logo=apache-tomcat&logoColor=black)
 ![Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
 
 ## Architecture Overview
