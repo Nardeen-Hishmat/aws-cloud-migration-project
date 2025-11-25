@@ -32,7 +32,8 @@ graph TD
         subgraph "Private Subnet (App Layer)"
             Tomcat["EC2 Instance <br> Apache Tomcat 9"]
         end
-        
+
+
         subgraph "Private Subnet (Managed Data Layer)"
             RDS[("Amazon RDS <br> MySQL")]
             MQ["Amazon MQ <br> RabbitMQ Engine"]
