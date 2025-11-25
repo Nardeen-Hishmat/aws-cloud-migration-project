@@ -19,24 +19,24 @@ The application is deployed within a custom **VPC** designed for security, isola
 graph TD
     %% Definitions of Nodes
     User((User / Internet))
-    R53[Route 53 <br> DNS]
+    R53["Route 53 <br> DNS"]
     
     subgraph "AWS Custom VPC"
         style VPC fill:#f9f9f9,stroke:#333,stroke-width:2px
         
         subgraph "Public Subnet (DMZ)"
-            ALB[Application Load Balancer <br> Replaces Nginx]
-            Bastion[Bastion Host / Jump Server <br> (Optional for Admin Access)]
+            ALB["Application Load Balancer <br> Replaces Nginx"]
+            Bastion["Bastion Host / Jump Server <br> (Optional for Admin)"]
         end
         
         subgraph "Private Subnet (App Layer)"
-            Tomcat[EC2 Instance <br> Apache Tomcat 9]
+            Tomcat["EC2 Instance <br> Apache Tomcat 9"]
         end
         
         subgraph "Private Subnet (Managed Data Layer)"
-            RDS[(Amazon RDS <br> MySQL)]
-            MQ[Amazon MQ <br> RabbitMQ Engine]
-            Cache[(Amazon ElastiCache <br> Memcached)]
+            RDS[("Amazon RDS <br> MySQL")]
+            MQ["Amazon MQ <br> RabbitMQ Engine"]
+            Cache[("Amazon ElastiCache <br> Memcached")]
         end
     end
 
@@ -60,6 +60,7 @@ graph TD
     style MQ fill:#3b48cc,stroke:#333,stroke-width:2px,color:white
     style Cache fill:#3b48cc,stroke:#333,stroke-width:2px,color:white
 ```
+
 ### Service Mapping (Local vs. AWS)
 
 | Component | Legacy/Local Setup | AWS Cloud Native Solution (PaaS) | Benefit |
