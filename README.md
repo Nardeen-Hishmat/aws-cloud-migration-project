@@ -1,5 +1,6 @@
 # AWS Cloud Refactoring Project 
 This project demonstrates the **Re-architecting (Refactoring)** of a multi-tier Java application on AWS. Instead of managing databases and brokers on VMs, we leverage AWS Managed Services (PaaS) for maximum scalability, security, and reduced operational overhead.
+---
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![EC2](https://img.shields.io/badge/EC2-orange?style=for-the-badge&logo=amazon-ec2&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
