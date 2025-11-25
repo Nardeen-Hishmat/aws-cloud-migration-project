@@ -16,7 +16,9 @@
 The deployment leverages AWS managed services to replace local virtualization components, ensuring high availability, scalability, and fault tolerance.
 
 ### Big Picture
-```graph TD
+```ةةة
+ة
+graph TD
     %% Definitions of Nodes
     User((User / Internet))
     R53[Route 53 <br> DNS Service]
