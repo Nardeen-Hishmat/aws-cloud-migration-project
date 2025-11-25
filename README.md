@@ -17,7 +17,7 @@ The application is deployed within a custom **VPC** designed for security, isola
 ### Big Picture
 ```mermaid
 graph TD
-%% Definitions of Nodes
+    %% Definitions of Nodes
     User((User / Internet))
     R53[Route 53 <br> DNS]
     
