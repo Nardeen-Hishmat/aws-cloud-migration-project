@@ -16,7 +16,7 @@
 The deployment leverages AWS managed services to replace local virtualization components, ensuring high availability, scalability, and fault tolerance.
 
 ### Big Picture
-```merimaid
+```mermaid
 graph id
     %% Definitions of Nodes
     User((User / Internet))
